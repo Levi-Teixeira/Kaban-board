@@ -2,14 +2,16 @@ import styled from "styled-components";
 
 export const Main = styled.div`
 
-    width: 350px;
-    max-height: 500px;
+    min-width: 20vw;
+    height: fit-content;
+    /* max-height: 500px; */
     border-radius: 5px;
     display: flex;
     flex-direction:column;
-    border-top:5px solid #53b0e5;
-    overflow: auto;
-    background-color: #5CC4FF;
+    border-top: 5px solid rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    background-color:${props => props.color};
+    margin-right: 15px;
     z-index: 2;
 
     h1{
@@ -26,6 +28,7 @@ export const Assignment = styled.div`
     height: 90px;
     width: 90%;
     padding: 15px ;
+    margin-bottom: 10px;
     background-color: white;
     align-self: center;
     border-radius: 5px;
@@ -36,14 +39,16 @@ export const Assignment = styled.div`
 
     p{
         font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
     }
+
+    
 `
 
 export const Tag = styled.div`
 
-    background-color: #5CC4FF;
-    width: 20%;
+    background-color: ${props => props.color};
+    width: fit-content;
+    min-width: 50px;
     border-radius: 5px;
     height: 24px;
     display: flex;
@@ -66,7 +71,7 @@ export const Button = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 15px;
 
     svg{
@@ -79,6 +84,10 @@ export const Button = styled.div`
         color: white;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
+    }
+
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.1);;
     }
     
 `

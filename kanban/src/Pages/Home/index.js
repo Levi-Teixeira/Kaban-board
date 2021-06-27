@@ -1,23 +1,28 @@
 import { Main, Button } from "./styles";
-import {React, useState} from "react";
+import {React,useEffect, useState, useContext} from "react";
 import background from '../../Assets/background.svg';
-import Column from "../../Components/Column";
+import Columns from "../../Components/Column";
+import {FiPlus} from 'react-icons/fi';
+import { ListContext } from "../../Provider/provider";
+import { Assignment, Tag } from "../../Components/Column/styles";
 
 const Home = () =>{
 
-    const [columns, setColumns] = useState([]);
-    const [toDo, setToDo] = useState([4]);
-    const [inProgress, setInProgress] = useState([1]);
-    const [done, setDone] = useState([3]);
+    const {columns} = useContext(ListContext);
+    
 
     return(
+        
         <Main>
             <h1>Kanban do projeto</h1>
             <div id='container'>
-                <Column></Column>
-                <Button/>    
-            </div>
-            
+                <Columns/>
+                <Button>
+                    <FiPlus/>
+                    <p>Adicionar outra lista</p>
+                </Button>     
+            </div>    
+                    
             <img src={background}/>
         </Main>
     )
