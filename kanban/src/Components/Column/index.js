@@ -23,7 +23,6 @@ const Columns = () =>{
         const newitem = ({...list, chores: newChores});
         const obj =({...columns, [i] : newitem});
         setColumns(Object.values(obj))
-        // setColumns(newArray);
       };
 
     return(

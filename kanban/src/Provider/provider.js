@@ -26,18 +26,11 @@ export const ListProvider = (props) => {
         },
     ]);
 
-    const [toDo, setToDo] = React.useState([
-        {name:'Nome da tarefa 1', tag:'Tag 1'},
-        {name:'Nome da tarefa 2', tag:'Tag 2'},
-        {name:'Nome da tarefa 3', tag:'Tag 3'},
-    ]);
-
 
     return (
         <ListContext.Provider value={{
             columns,
             setColumns,
-            toDo,
             }}>
             {props.children}
         </ListContext.Provider>
