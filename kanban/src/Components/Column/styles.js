@@ -42,7 +42,32 @@ export const Assignment = styled.div`
     }
 
     button{
-        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border:none;
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+
+        &:hover{
+            background-color: lightgrey;
+        }
+    }
+
+    #row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &:hover{
+        button{
+            display:block;
+        }
     }
 
     

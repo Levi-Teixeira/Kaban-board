@@ -1,5 +1,6 @@
 import {Main, Assignment, Tag, Button} from './styles';
 import {FiPlus} from 'react-icons/fi';
+import { FiTrash } from 'react-icons/fi';
 import { React, useContext} from 'react';
 import { ListContext } from "../../Provider/provider";
 
@@ -54,7 +55,10 @@ const Columns = () =>{
             {item.chores.map((chores, key)=>(
                 <Assignment id={i} order={key} draggable onDragEnd={e=>dragEnd(i,key)} onDragStart={e=>dragStart(i, key)}>
                     <p>{chores.name}</p>
-                    <Tag color={item.color}><p>{chores.tag}</p></Tag>
+                    <div id='row'>
+                        <button onClick={e=> removeChore(i,key)}><FiTrash/></button> 
+                        <Tag color={item.color}><p>{chores.tag}</p></Tag>
+                    </div>
                 </Assignment>
             ))}
             <Button id={i} onClick={() => addChore(i)}>
