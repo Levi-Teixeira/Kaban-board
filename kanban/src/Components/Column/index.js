@@ -6,6 +6,9 @@ import { ListContext } from "../../Provider/provider";
 const Columns = () =>{
 
     const {columns, setColumns} = useContext(ListContext);
+    
+    let dragged = ''
+    let destiny = ''
 
     const addChore = (id) =>{    //Manipulação de objetos
         const modifiedItem = columns[id];
@@ -23,15 +26,33 @@ const Columns = () =>{
         const newitem = ({...list, chores: newChores});
         const obj =({...columns, [i] : newitem});
         setColumns(Object.values(obj))
-      };
+    };
+
+    const dragStart = (i, key) =>{
+        const list = columns[i];
+        dragged = (list.chores[key]);
+    }
+
+    const dragOver = (i) =>{
+        destiny = columns[i];
+    }
+
+    const dragEnd = (i, key) =>{
+        if(destiny !== columns[i]){
+            destiny.chores.push(dragged)
+            const obj = ({...columns, [columns.indexOf(destiny)] : destiny });
+            setColumns(Object.values(obj));
+            removeChore(i,key);     
+        }
+    }
 
     return(
         <>
         {columns.map((item, i)=>(
-            <Main color={item.color}>
+            <Main onDragOver={e=> dragOver(i)}  color={item.color}>
             <h1>{item.title}</h1>
             {item.chores.map((chores, key)=>(
-                <Assignment id={i} order={key} onClick={e=> removeChore(i,key)}>
+                <Assignment id={i} order={key} draggable onDragEnd={e=>dragEnd(i,key)} onDragStart={e=>dragStart(i, key)}>
                     <p>{chores.name}</p>
                     <Tag color={item.color}><p>{chores.tag}</p></Tag>
                 </Assignment>

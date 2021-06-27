@@ -41,6 +41,10 @@ export const Assignment = styled.div`
         font-family: Arial, Helvetica, sans-serif;
     }
 
+    button{
+        
+    }
+
     
 `
 
