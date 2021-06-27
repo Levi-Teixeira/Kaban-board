@@ -37,9 +37,13 @@ const Columns = () =>{
         destiny = columns[i];
     }
 
-    const dragEnd = () =>{
-        console.log(dragged);
-        console.log(destiny);
+    const dragEnd = (i, key) =>{
+        if(destiny !== columns[i]){
+            destiny.chores.push(dragged)
+            const obj = ({...columns, [columns.indexOf(destiny)] : destiny });
+            setColumns(Object.values(obj));
+            removeChore(i,key);     
+        }
     }
 
     return(
@@ -48,7 +52,7 @@ const Columns = () =>{
             <Main onDragOver={e=> dragOver(i)}  color={item.color}>
             <h1>{item.title}</h1>
             {item.chores.map((chores, key)=>(
-                <Assignment id={i} order={key} onClick={e=> removeChore(i,key)} draggable onDragEnd={dragEnd} onDragStart={e=>dragStart(i, key)}>
+                <Assignment id={i} order={key} draggable onDragEnd={e=>dragEnd(i,key)} onDragStart={e=>dragStart(i, key)}>
                     <p>{chores.name}</p>
                     <Tag color={item.color}><p>{chores.tag}</p></Tag>
                 </Assignment>
