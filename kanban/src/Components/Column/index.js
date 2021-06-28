@@ -90,6 +90,12 @@ const Columns = () =>{
         setColumns(Object.values(obj));
     }
 
+    const removeColumn = (i) =>{
+        const removed = columns[i];
+        const newColumns = columns.filter((n) => n !== removed);
+        setColumns(newColumns);
+    }
+
     return(
         <>
         {columns.map((item, i)=>(
@@ -105,9 +111,15 @@ const Columns = () =>{
                 }
                         
                 {i > 2 &&                                                                         // Botões a serem habilitados apenas nas colunas criadas posteriormente.
-                <button id='edit' onClick={e=> editColumn(i)} className={item.editing ? 'active' : ''}> 
-                    <AiOutlineEdit/>
-                </button>} 
+                <div id='flex'>
+                    <button id='edit' onClick={e=> editColumn(i)} className={item.editing ? 'active' : ''}> 
+                        <AiOutlineEdit/>
+                    </button>
+                    <button id='edit' onClick={e=> removeColumn(i)} > 
+                        <FiTrash/>
+                    </button>    
+                </div>
+                }
 
             </div>
             {item.chores.map((chores, key)=>(
