@@ -1,4 +1,4 @@
-# Kaban-board
+# Kanban-board
 
 Para rodar o projeto:
 
