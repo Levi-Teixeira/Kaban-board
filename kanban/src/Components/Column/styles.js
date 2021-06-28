@@ -14,6 +14,9 @@ export const Main = styled.div`
     margin-right: 15px;
     z-index: 2;
 
+    #flex{
+        display: flex;
+    }
 
     #row{
         display: flex;
@@ -27,7 +30,7 @@ export const Main = styled.div`
             margin-top: 15px; 
         }
 
-        #edit{
+        #edit, #flex > button{
             display: none;
             display: flex;
             justify-content: center;
@@ -39,6 +42,7 @@ export const Main = styled.div`
             border-radius: 5px;
             cursor: pointer;
             display: none;
+            margin-left: 10px;
         }
 
         .active{
@@ -60,6 +64,10 @@ export const Main = styled.div`
         font-size: 16pt;
         margin-bottom: 15px;
         margin-top: 15px;
+        max-width: 85%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
 `
@@ -76,6 +84,14 @@ export const Assignment = styled.div`
     justify-content: space-between;
     box-shadow: rgba(50, 50, 93, 0.2) 0px 10px 20px 0px;
 
+    p{  
+        max-width: 200px;
+        font-family: Arial, Helvetica, sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .active{
         background-color: green;
         display: block;
@@ -85,13 +101,6 @@ export const Assignment = styled.div`
         }
     }
 
-    p{
-        font-family: Arial, Helvetica, sans-serif;
-        max-width: 80%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
 
     button{
         display: flex;
@@ -117,6 +126,7 @@ export const Assignment = styled.div`
         justify-content: space-between;
     }
 
+
     &:hover{
         button{
             display:block;
@@ -129,12 +139,11 @@ export const Assignment = styled.div`
 export const Tag = styled.div`
 
     background-color: ${props => props.color};
-    max-width: 85%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 150px;
     min-width: 50px;
     border-radius: 5px;
     height: 24px;
+    padding: 0px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
