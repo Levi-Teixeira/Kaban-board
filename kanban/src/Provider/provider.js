@@ -9,20 +9,17 @@ export const ListProvider = (props) => {
         {
         title: 'To Do',
         color: '#5CC4FF', 
-        chores:[
-            {name:'Nome da tarefa 1', tag:'Tag 1'},
-            {name:'Nome da tarefa 2', tag:'Tag 2'},
-            {name:'Nome da tarefa 3', tag:'Tag 3'},
-        ]},
+        chores:[],
+        }, 
         {
         title: 'In Progress',
         color: '#945ad1',
-        chores:[],    
+        chores:[],   
         },
         {
         title: 'Done',
         color: '#59d090',
-        chores:[{name:'Nome da tarefa 1', tag:'Tag 1'},],
+        chores:[],
         },
     ]);
 

@@ -14,9 +14,48 @@ export const Main = styled.div`
     margin-right: 15px;
     z-index: 2;
 
+
+    #row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        align-self: center;
+
+        input{
+            margin-bottom: 15px;
+            margin-top: 15px; 
+        }
+
+        #edit{
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border:none;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .active{
+            display: block !important;
+            background-color: green !important;
+        }
+
+        &:hover{
+            #edit{
+                display: block;    
+            } 
+        }
+    }
+    
+
     h1{
         color: white;
-        width: 90%;
         align-self: center;
         font-size: 16pt;
         margin-bottom: 15px;
@@ -37,8 +76,21 @@ export const Assignment = styled.div`
     justify-content: space-between;
     box-shadow: rgba(50, 50, 93, 0.2) 0px 10px 20px 0px;
 
+    .active{
+        background-color: green;
+        display: block;
+
+        &:hover{
+            background-color: green;
+        }
+    }
+
     p{
         font-family: Arial, Helvetica, sans-serif;
+        max-width: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     button{
@@ -56,9 +108,10 @@ export const Assignment = styled.div`
         &:hover{
             background-color: lightgrey;
         }
+
     }
 
-    #row{
+    #row-1, #row-2{
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -76,7 +129,9 @@ export const Assignment = styled.div`
 export const Tag = styled.div`
 
     background-color: ${props => props.color};
-    width: fit-content;
+    max-width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     min-width: 50px;
     border-radius: 5px;
     height: 24px;
