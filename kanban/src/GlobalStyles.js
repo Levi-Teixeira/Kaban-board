@@ -8,7 +8,7 @@ export default createGlobalStyle`
     }
 
     html, body, #root{
-        width: 100%;
+        width: fit-content;
         height: 100%;
         background-color: #e1e8ed;
 
